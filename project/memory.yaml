@@ -9,3 +9,15 @@
   - prompt
   last_updated: '2025-06-24'
   pod_owner: DeliveryPod
+- path: AGENTS.md
+  raw_url: https://raw.githubusercontent.com/stewmckendry/ai-finance-copilot/main/AGENTS.md
+  file_type: md
+  description: Instructions and guidelines for agents working on the Finance Analyst
+    Co-Pilot codebase, including repo structure, naming conventions, and agent checklists.
+  tags:
+  - guide
+  - standards
+  - agents
+  - repo-structure
+  last_updated: '2025-06-24'
+  pod_owner: DeliveryPod
