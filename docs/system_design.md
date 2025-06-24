@@ -43,10 +43,13 @@ User --> Web UI --> FastMCP Interface -->
 | `Tool Modules`   | Python functions implementing MCP tools         |
 | `SQLite DB`      | Simulated budget + actuals + variance store     |
 | `Frontend`       | Review interface, log viewer, approval actions  |
+| `MCP Resources`  | Exposed configs, prompts, and schema            |
+| `Prompt Registry`| YAML + MCP-native prompt definitions            |
 
 ## 🔐 Security & Privacy
 - Local tool execution for sensitive data
 - Full audit logs (tool calls, inputs, reasoning)
+- Optional auth for data access, tool use
 
 ## 🔁 Workflow Lifecycle
 1. User uploads files or initiates analysis
@@ -62,10 +65,11 @@ User --> Web UI --> FastMCP Interface -->
 - Logs of tool calls and LLM decisions
 
 ## 🧱 Future Enhancements
-- Multi-source joins
+- MCP HTTP/SSE transport
+- Prompt registry and agent prompt discovery
+- Cancel/progress lifecycle support
 - Auto-refresh from shared drives
-- LLM fine-tuning for sector-specific tone
 - Real-time budget chat assistant
 
 ---
-System reflects Model Context Protocol (MCP) principles: modularity, traceability, human-in-the-loop.
+System reflects Model Context Protocol (MCP) principles: modularity, prompt/resource separation, lifecycle traceability, and human-in-the-loop.
