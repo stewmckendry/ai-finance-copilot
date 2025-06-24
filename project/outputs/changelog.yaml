@@ -132,3 +132,13 @@
   committed_by: GPTPod
   message: Add new development standards for requirements, .env, test scripts, and
     code comments
+- timestamp: '2025-06-24T19:02:17.773270'
+  path: task_guides/task_003_mcp_prompt_registry.md
+  task_id: initialize_codex_agent_guidelines-e0ccbe
+  committed_by: GPTPod
+  message: Add MCP prompt registry task to define and load YAML prompts
+- timestamp: '2025-06-24T19:02:17.773270'
+  path: project/memory.yaml
+  task_id: initialize_codex_agent_guidelines-e0ccbe
+  committed_by: GPTPod
+  message: Memory update related to task_guides/task_003_mcp_prompt_registry.md
