@@ -47,3 +47,16 @@
   - agent
   last_updated: '2025-06-24'
   pod_owner: DeliveryPod
+- path: docs/system_design.md
+  raw_url: https://raw.githubusercontent.com/stewmckendry/ai-finance-copilot/main/docs/system_design.md
+  file_type: md
+  description: Documentation for the design and architecture of a modular, AI-powered
+    reporting system for public sector finance teams, detailing components, data sources,
+    security, workflow, and future enhancements.
+  tags:
+  - system_design
+  - architecture
+  - workflow
+  - finance
+  last_updated: '2025-06-24'
+  pod_owner: ResearchPod
