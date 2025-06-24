@@ -116,3 +116,8 @@
   task_id: initialize_codex_agent_guidelines-e0ccbe
   committed_by: GPTPod
   message: Update task 001 to reflect prompt YAML and MCP resource standards
+- timestamp: '2025-06-24T18:39:45.026509'
+  path: task_guides/task_002_fetch_azure_sql.md
+  task_id: initialize_codex_agent_guidelines-e0ccbe
+  committed_by: GPTPod
+  message: Update task 002 to include MCP resource config and test modes
