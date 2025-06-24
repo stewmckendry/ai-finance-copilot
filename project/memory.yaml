@@ -21,3 +21,16 @@
   - repo-structure
   last_updated: '2025-06-24'
   pod_owner: DeliveryPod
+- path: README.md
+  raw_url: https://raw.githubusercontent.com/stewmckendry/ai-finance-copilot/main/README.md
+  file_type: md
+  description: Documentation for the Finance Analyst Co-Pilot, an AI assistant for
+    public sector finance teams, detailing its capabilities, technical foundation,
+    agent architecture, and deployment context.
+  tags:
+  - finance
+  - AI
+  - model
+  - compliance
+  last_updated: '2025-06-24'
+  pod_owner: DeliveryPod
