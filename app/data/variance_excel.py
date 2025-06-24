@@ -14,6 +14,7 @@ from typing import List, Dict
 import pandas as pd
 from fastmcp.server import FastMCP
 from app.resources import load_resource
+from app.prompts import load_prompt
 
 logger = logging.getLogger(__name__)
 
@@ -30,6 +31,10 @@ VARIANCE_METADATA = load_resource("variance_ingest")
 def variance_metadata() -> dict:
     """Expose variance ingest metadata as a resource."""
     return VARIANCE_METADATA
+
+# Load prompt configuration for the tool
+PROMPT = load_prompt("variance_ingest")
+
 
 
 @mcp.tool(name="parseVarianceSpreadsheet")

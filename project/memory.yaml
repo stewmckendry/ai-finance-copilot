@@ -108,3 +108,16 @@
   - testing
   last_updated: '2025-06-24'
   pod_owner: DevPod
+- path: task_guides/task_003_mcp_prompt_registry.md
+  raw_url: https://raw.githubusercontent.com/stewmckendry/ai-finance-copilot/main/task_guides/task_003_mcp_prompt_registry.md
+  file_type: md
+  description: Guide for creating and managing a registry of LLM prompts using YAML
+    and the MCP prompt API, including a Python helper for loading and registering
+    prompts.
+  tags:
+  - prompt
+  - registry
+  - YAML
+  - MCP
+  last_updated: '2025-06-24'
+  pod_owner: DevPod

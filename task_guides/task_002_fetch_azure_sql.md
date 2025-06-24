@@ -1,14 +1,22 @@
 # 🧾 Task 002: Fetch Budget Data from Azure SQL
 
 ## 🎯 Objective
-Build `fetchBudgetData(period)` to retrieve data from a read-only Azure SQL database using MCP features.
+Build `fetchBudgetData(period)` to retrieve structured budget + actuals data from a read-only Azure SQL Server database using MCP standards.
 
-## 🔍 Input
+## 📥 Input
 - `period`: fiscal month or quarter (e.g. `2024-Q3`)
 
 ## 📤 Output
-- Dictionary of budget and actuals per account
-- Matches schema: `budgets`, `actuals`, `transactions`
+- Dictionary matching MCP schema:
+  - `budgets`: [{ department, account, amount_planned, fiscal_year }]
+  - `actuals`: [{ department, account, amount_actual, fiscal_period }]
+  - `transactions`: [{ account, date, amount, description }]
+
+## 📁 File Locations
+- Tool logic: `app/data/azure_sql.py`
+- DB helpers: `app/storage/db.py`
+- ORM schema: `app/storage/models.py`
+- SQL schema: `app/storage/schema.sql`
 
 ## 🔧 Tool Spec
 ```python
@@ -17,27 +25,27 @@ def fetch_budget_data(period: str) -> dict:
     ...
 ```
 
-## ⚙️ Tech
-- Use `pyodbc` or `sqlalchemy` with secure, read-only connection string
-- Optionally fallback to SQLite if not configured
-
-## 📁 File
-- Path: `app/data/azure_sql.py`
-
 ## 🔁 MCP Features
-- Register with `@mcp.tool`
-- Connection string as MCP `resource://config/azure_sql`
-- Log query results with `logger`
+- Use `@mcp.tool`
+- Config path: `resource://config/azure_sql`
+- Log all DB queries
+
+## ⚙️ Implementation Notes
+- Use `SQLAlchemy` for DB access and connection pooling
+- Define ORM models in `models.py`
+- Write schema for those tables as `schema.sql`
+- Centralize engine/session helpers in `db.py`
+- Handle pagination and connection errors
 
 ## ✅ Done When
-- Returns dict of structured data
-- CLI and test run with MCP transport
+- Query returns clean, JSON-serializable dict
+- Matches model schema
+- Supports test fallback to SQLite
 
 ## 🧪 Test
 - Path: `tests/data/test_azure_sql.py`
-- Use local mock or SQLite fallback for test mode
+- Mock SQLite db w/ matching schema
+- Validate correct records returned for fiscal period
 
 ## 🔐 Privacy
-- Read-only SQL access
-- No writes or destructive actions
-- Local test mode enabled
+- No writes; read-only credential access only

@@ -1,134 +1,154 @@
-- timestamp: '2025-06-24T17:01:15.815328'
-  path: project/task.yaml
-  task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: ProductPod
+- committed_by: ProductPod
   message: Create new task initialize_codex_agent_guidelines-e0ccbe from template
     initialize_codex_agent_guidelines
-- timestamp: '2025-06-24T17:01:15.815328'
+  path: project/task.yaml
+  task_id: initialize_codex_agent_guidelines-e0ccbe
+  timestamp: '2025-06-24T17:01:15.815328'
+- committed_by: ProductPod
+  message: Memory update related to project/task.yaml
   path: project/memory.yaml
   task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: ProductPod
-  message: Memory update related to project/task.yaml
-- timestamp: '2025-06-24T17:01:39.773167'
+  timestamp: '2025-06-24T17:01:15.815328'
+- committed_by: GPTPod
+  message: Add Codex Agent guide tailored for Finance Analyst Co-Pilot
   path: AGENTS.md
   task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: GPTPod
-  message: Add Codex Agent guide tailored for Finance Analyst Co-Pilot
-- timestamp: '2025-06-24T17:01:39.773167'
+  timestamp: '2025-06-24T17:01:39.773167'
+- committed_by: GPTPod
+  message: Memory update related to AGENTS.md
   path: project/memory.yaml
   task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: GPTPod
-  message: Memory update related to AGENTS.md
-- timestamp: '2025-06-24T17:02:11.548281'
+  timestamp: '2025-06-24T17:01:39.773167'
+- committed_by: GPTPod
+  message: Add project README with overview, architecture, setup, and usage
   path: README.md
   task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: GPTPod
-  message: Add project README with overview, architecture, setup, and usage
-- timestamp: '2025-06-24T17:02:11.548281'
+  timestamp: '2025-06-24T17:02:11.548281'
+- committed_by: GPTPod
+  message: Memory update related to README.md
   path: project/memory.yaml
   task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: GPTPod
-  message: Memory update related to README.md
-- timestamp: '2025-06-24T17:51:15.269930'
+  timestamp: '2025-06-24T17:02:11.548281'
+- committed_by: GPTPod
+  message: Add MVP task plan for Codex Agent implementation
   path: task_guides/TASKS.md
   task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: GPTPod
-  message: Add MVP task plan for Codex Agent implementation
-- timestamp: '2025-06-24T17:51:15.269930'
+  timestamp: '2025-06-24T17:51:15.269930'
+- committed_by: GPTPod
+  message: Memory update related to task_guides/TASKS.md
   path: project/memory.yaml
   task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: GPTPod
-  message: Memory update related to task_guides/TASKS.md
-- timestamp: '2025-06-24T17:51:45.961178'
+  timestamp: '2025-06-24T17:51:15.269930'
+- committed_by: GPTPod
+  message: Add system design doc with architecture and workflows
   path: docs/system_design.md
   task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: GPTPod
-  message: Add system design doc with architecture and workflows
-- timestamp: '2025-06-24T17:51:45.961178'
+  timestamp: '2025-06-24T17:51:45.961178'
+- committed_by: GPTPod
+  message: Memory update related to docs/system_design.md
   path: project/memory.yaml
   task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: GPTPod
-  message: Memory update related to docs/system_design.md
-- timestamp: '2025-06-24T17:52:10.817795'
+  timestamp: '2025-06-24T17:51:45.961178'
+- committed_by: GPTPod
+  message: Add product roadmap to guide MVP delivery
   path: docs/roadmap.md
   task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: GPTPod
-  message: Add product roadmap to guide MVP delivery
-- timestamp: '2025-06-24T17:52:10.817795'
+  timestamp: '2025-06-24T17:52:10.817795'
+- committed_by: GPTPod
+  message: Memory update related to docs/roadmap.md
   path: project/memory.yaml
   task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: GPTPod
-  message: Memory update related to docs/roadmap.md
-- timestamp: '2025-06-24T18:08:49.773488'
-  path: AGENTS.md
-  task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: GPTPod
+  timestamp: '2025-06-24T17:52:10.817795'
+- committed_by: GPTPod
   message: 'Update AGENTS.md with dev standards: modularity, logging, prompt YAMLs,
     FastMCP, Gemini usage'
-- timestamp: '2025-06-24T18:09:16.311008'
+  path: AGENTS.md
+  task_id: initialize_codex_agent_guidelines-e0ccbe
+  timestamp: '2025-06-24T18:08:49.773488'
+- committed_by: GPTPod
+  message: Update system design to include Azure SQL read-only data feed
   path: docs/system_design.md
   task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: GPTPod
-  message: Update system design to include Azure SQL read-only data feed
-- timestamp: '2025-06-24T18:09:36.260415'
+  timestamp: '2025-06-24T18:09:16.311008'
+- committed_by: GPTPod
+  message: Add task file for Excel variance ingestion (parallel)
   path: task_guides/task_001_ingest_variance_excel.md
   task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: GPTPod
-  message: Add task file for Excel variance ingestion (parallel)
-- timestamp: '2025-06-24T18:09:36.260415'
+  timestamp: '2025-06-24T18:09:36.260415'
+- committed_by: GPTPod
+  message: Memory update related to task_guides/task_001_ingest_variance_excel.md
   path: project/memory.yaml
   task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: GPTPod
-  message: Memory update related to task_guides/task_001_ingest_variance_excel.md
-- timestamp: '2025-06-24T18:09:53.365546'
+  timestamp: '2025-06-24T18:09:36.260415'
+- committed_by: GPTPod
+  message: Add Azure SQL data fetch task (parallel)
   path: task_guides/task_002_fetch_azure_sql.md
   task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: GPTPod
-  message: Add Azure SQL data fetch task (parallel)
-- timestamp: '2025-06-24T18:09:53.365546'
+  timestamp: '2025-06-24T18:09:53.365546'
+- committed_by: GPTPod
+  message: Memory update related to task_guides/task_002_fetch_azure_sql.md
   path: project/memory.yaml
   task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: GPTPod
-  message: Memory update related to task_guides/task_002_fetch_azure_sql.md
-- timestamp: '2025-06-24T18:10:14.741577'
+  timestamp: '2025-06-24T18:09:53.365546'
+- committed_by: GPTPod
+  message: Add sequential task to compute budget vs actual variances
   path: task_guides/task_010_compute_variances.md
   task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: GPTPod
-  message: Add sequential task to compute budget vs actual variances
-- timestamp: '2025-06-24T18:10:14.741577'
+  timestamp: '2025-06-24T18:10:14.741577'
+- committed_by: GPTPod
+  message: Memory update related to task_guides/task_010_compute_variances.md
   path: project/memory.yaml
   task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: GPTPod
-  message: Memory update related to task_guides/task_010_compute_variances.md
-- timestamp: '2025-06-24T18:38:47.452728'
+  timestamp: '2025-06-24T18:10:14.741577'
+- committed_by: GPTPod
+  message: Expand AGENTS.md with prompt/resource directories and MCP integration standards
   path: AGENTS.md
   task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: GPTPod
-  message: Expand AGENTS.md with prompt/resource directories and MCP integration standards
-- timestamp: '2025-06-24T18:39:11.308034'
-  path: docs/system_design.md
-  task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: GPTPod
+  timestamp: '2025-06-24T18:38:47.452728'
+- committed_by: GPTPod
   message: Update system design with MCP prompt registry, resources, lifecycle, HTTP
     transport
-- timestamp: '2025-06-24T18:39:28.448840'
+  path: docs/system_design.md
+  task_id: initialize_codex_agent_guidelines-e0ccbe
+  timestamp: '2025-06-24T18:39:11.308034'
+- committed_by: GPTPod
+  message: Update task 001 to reflect prompt YAML and MCP resource standards
   path: task_guides/task_001_ingest_variance_excel.md
   task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: GPTPod
-  message: Update task 001 to reflect prompt YAML and MCP resource standards
-- timestamp: '2025-06-24T18:39:45.026509'
+  timestamp: '2025-06-24T18:39:28.448840'
+- committed_by: GPTPod
+  message: Update task 002 to include MCP resource config and test modes
   path: task_guides/task_002_fetch_azure_sql.md
   task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: GPTPod
-  message: Update task 002 to include MCP resource config and test modes
-- timestamp: '2025-06-24T18:41:10.102861'
+  timestamp: '2025-06-24T18:39:45.026509'
+- committed_by: GPTPod
+  message: Update TASKS.md with additional MCP enhancement tasks
   path: task_guides/TASKS.md
   task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: GPTPod
-  message: Update TASKS.md with additional MCP enhancement tasks
-- timestamp: '2025-06-24T18:45:06.023322'
-  path: AGENTS.md
-  task_id: initialize_codex_agent_guidelines-e0ccbe
-  committed_by: GPTPod
+  timestamp: '2025-06-24T18:41:10.102861'
+- committed_by: GPTPod
   message: Add new development standards for requirements, .env, test scripts, and
     code comments
+  path: AGENTS.md
+  task_id: initialize_codex_agent_guidelines-e0ccbe
+  timestamp: '2025-06-24T18:45:06.023322'
+- committed_by: GPTPod
+  message: Add MCP prompt registry task to define and load YAML prompts
+  path: task_guides/task_003_mcp_prompt_registry.md
+  task_id: initialize_codex_agent_guidelines-e0ccbe
+  timestamp: '2025-06-24T19:02:17.773270'
+- committed_by: GPTPod
+  message: Memory update related to task_guides/task_003_mcp_prompt_registry.md
+  path: project/memory.yaml
+  task_id: initialize_codex_agent_guidelines-e0ccbe
+  timestamp: '2025-06-24T19:02:17.773270'
+- committed_by: GPTPod
+  message: Update task 002 with SQLAlchemy, helpers, models, schema.sql guidance
+  path: task_guides/task_002_fetch_azure_sql.md
+  task_id: initialize_codex_agent_guidelines-e0ccbe
+  timestamp: '2025-06-24T19:10:00.173985'
+- committed_by: GPTPod
+  message: Add Azure SQL fetch tool with models and tests
+  path: app/data/azure_sql.py
+  task_id: initialize_codex_agent_guidelines-e0ccbe
+  timestamp: '2025-06-24T19:16:59.563682'
