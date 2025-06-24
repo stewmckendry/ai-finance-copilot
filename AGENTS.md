@@ -49,4 +49,17 @@ Agents are expected to:
 - Commit only their assigned files
 - Link work to task prompts in `task_guides/`
 
+---
+
+## 🧱 Development Standards
+
+To ensure quality and consistency:
+
+- Use **FastMCP** (https://github.com/modelcontextprotocol/python-sdk) for tool orchestration.
+- Use `gemini` via Google’s Python SDK for LLM calls.
+- Define **prompts in YAML** files (user + system), and load using a shared helper.
+- Reuse shared helpers for parsing, logging, and I/O.
+- Modularize functionality into logical Python modules, avoid monolithic scripts.
+- Use `logger` to track progress and handle errors.
+
 Thank you for contributing to this MCP-powered AI Co-Pilot 🚀
