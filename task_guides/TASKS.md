@@ -4,7 +4,7 @@ This document outlines tasks for Codex Agents to build the MVP pipeline.
 
 ## 🔹 Agent A: Data Agent
 - `task_001_ingest_variance_excel.md`: Parse IFIS-style budget vs actual spreadsheets
-- `task_002_parse_budget_pdf.md`: Extract structured data from Toronto/Ontario budget PDFs
+- `task_002_fetch_azure_sql.md`: Load data from read-only Azure SQL database
 - `task_003_normalize_inputs.md`: Transform inputs into unified finance schema
 
 ## 🔹 Agent B: Analysis Agent
@@ -29,6 +29,13 @@ This document outlines tasks for Codex Agents to build the MVP pipeline.
 ## 🧪 Test Data & Scaffolding
 - `task_050_seed_sqlite.md`: Populate mock finance DB
 - `task_051_sample_inputs.md`: Store PDF, Excel samples
-- `task_052test_pipeline.md`: End-to-end test case with mock data
+- `task_052_test_pipeline.md`: End-to-end test case with mock data
 
-Each file will define scope, inputs, outputs, expected behavior, and test setup.
+## 🔧 MCP Enhancements
+- `task_003_mcp_prompt_registry.md`: Register YAML prompts via MCP
+- `task_004_mcp_resources.md`: Expose config/schema as MCP resources
+- `task_005_context_and_progress.md`: Implement lifecycle + cancellation hooks
+- `task_006_capability_discovery.md`: Expose tool registry via MCP introspection
+- `task_007_http_transport.md`: Add Streamable HTTP transport using FastMCP
+
+Each file defines scope, inputs, outputs, expected behavior, and test setup.
