@@ -1,7 +1,7 @@
 # 🧾 Task 002: Fetch Budget Data from Azure SQL
 
 ## 🎯 Objective
-Build `fetchBudgetData(period)` to retrieve data from a read-only Azure SQL database.
+Build `fetchBudgetData(period)` to retrieve data from a read-only Azure SQL database using MCP features.
 
 ## 🔍 Input
 - `period`: fiscal month or quarter (e.g. `2024-Q3`)
@@ -18,20 +18,26 @@ def fetch_budget_data(period: str) -> dict:
 ```
 
 ## ⚙️ Tech
-- Use `pyodbc` or `sqlalchemy` with read-only connection string
-- Include fallback to local SQLite for testing
+- Use `pyodbc` or `sqlalchemy` with secure, read-only connection string
+- Optionally fallback to SQLite if not configured
 
 ## 📁 File
 - Path: `app/data/azure_sql.py`
 
-## 🧠 Notes
-- Use config file for connection params
-- Log query and response stats
+## 🔁 MCP Features
+- Register with `@mcp.tool`
+- Connection string as MCP `resource://config/azure_sql`
+- Log query results with `logger`
 
 ## ✅ Done When
 - Returns dict of structured data
-- Supports CLI run + test case
+- CLI and test run with MCP transport
 
 ## 🧪 Test
 - Path: `tests/data/test_azure_sql.py`
-- Mock DB or stub with SQLite fallback
+- Use local mock or SQLite fallback for test mode
+
+## 🔐 Privacy
+- Read-only SQL access
+- No writes or destructive actions
+- Local test mode enabled
