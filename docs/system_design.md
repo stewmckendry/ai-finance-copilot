@@ -8,7 +8,7 @@ The Co-Pilot is a modular, AI-powered reporting system for public sector finance
 ```
 User --> Web UI --> FastMCP Interface -->
     [Agent A] Data Agent
-        - fetchBudgetData
+        - fetchBudgetData (CSV, Excel, PDF, Azure SQL read-only)
         - parseVarianceSpreadsheet
         - parsePDFReports
 
@@ -33,6 +33,7 @@ User --> Web UI --> FastMCP Interface -->
 ## 🗃️ Data Sources
 - Excel/CSV exports from IFIS/ERP
 - Public PDF reports (Toronto/Ontario budgets)
+- Read-only Azure SQL DB mirroring ERP data
 - Manual uploads or email attachments
 
 ## 🧩 Components
