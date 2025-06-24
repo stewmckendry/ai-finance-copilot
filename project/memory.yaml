@@ -1,0 +1,11 @@
+- path: project/task.yaml
+  raw_url: https://raw.githubusercontent.com/stewmckendry/ai-finance-copilot/main/project/task.yaml
+  file_type: yaml
+  description: Configuration for initializing Codex agent guidelines with task metadata
+    and references to templates
+  tags:
+  - task
+  - config
+  - prompt
+  last_updated: '2025-06-24'
+  pod_owner: DeliveryPod
