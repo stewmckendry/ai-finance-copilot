@@ -60,3 +60,15 @@
   - finance
   last_updated: '2025-06-24'
   pod_owner: ResearchPod
+- path: docs/roadmap.md
+  raw_url: https://raw.githubusercontent.com/stewmckendry/ai-finance-copilot/main/docs/roadmap.md
+  file_type: md
+  description: Document outlining the roadmap for developing a Finance Analyst Co-Pilot,
+    detailing phases from infrastructure setup to open-sourcing the project.
+  tags:
+  - roadmap
+  - planning
+  - pipeline
+  - finance
+  last_updated: '2025-06-24'
+  pod_owner: DeliveryPod
