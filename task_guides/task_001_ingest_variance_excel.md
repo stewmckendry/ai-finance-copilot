@@ -21,16 +21,20 @@ def parse_variance(file_path: str) -> List[dict]:
     ...
 ```
 
-## 🧠 Notes
-- Support both `.xlsx` and `.csv`
-- Include test Excel file and output sample
-- Log parsing steps with `logger`
+## 🔁 MCP Features
+- Register using `@mcp.tool`
+- Use logger for parsing events
+- Write prompt config to `app/prompts/variance_ingest.yaml`
+- Load config or schema from MCP resource if needed
 
 ## ✅ Done When
 - File is parsed and validated into row list
-- Supports CLI run + test case
-- Included in toolchain registry
+- Prompts loaded via helper
+- CLI + test pass with MCP transport
 
 ## 🧪 Test
 - Path: `tests/data/test_variance_excel.py`
 - Input: `samples/sample_variance.xlsx`
+
+## 🔐 Privacy
+- Run locally only, no external data push
