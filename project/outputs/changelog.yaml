@@ -126,3 +126,9 @@
   task_id: initialize_codex_agent_guidelines-e0ccbe
   committed_by: GPTPod
   message: Update TASKS.md with additional MCP enhancement tasks
+- timestamp: '2025-06-24T18:45:06.023322'
+  path: AGENTS.md
+  task_id: initialize_codex_agent_guidelines-e0ccbe
+  committed_by: GPTPod
+  message: Add new development standards for requirements, .env, test scripts, and
+    code comments
