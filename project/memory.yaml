@@ -72,3 +72,15 @@
   - finance
   last_updated: '2025-06-24'
   pod_owner: DeliveryPod
+- path: task_guides/task_001_ingest_variance_excel.md
+  raw_url: https://raw.githubusercontent.com/stewmckendry/ai-finance-copilot/main/task_guides/task_001_ingest_variance_excel.md
+  file_type: md
+  description: Guide to building a tool for parsing variance Excel/CSV files into
+    structured JSON for FastMCP compatibility
+  tags:
+  - ingestion
+  - parsing
+  - tool
+  - excel
+  last_updated: '2025-06-24'
+  pod_owner: DeliveryPod
