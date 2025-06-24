@@ -14,6 +14,8 @@ This file provides instructions, standards, and practices for agents contributin
 | `app/narratives/`    | Narrative generation and LLM prompts        |
 | `app/queries/`       | Conversational budget query tools           |
 | `app/interface/`     | CLI or UI interaction logic                 |
+| `app/prompts/`       | YAML-based LLM prompt templates             |
+| `app/resources/`     | MCP-accessible config and metadata          |
 | `task_guides/`       | Task instructions and review reports        |
 | `tests/`             | Unit tests for each component               |
 
@@ -57,9 +59,8 @@ To ensure quality and consistency:
 
 - Use **FastMCP** (https://github.com/modelcontextprotocol/python-sdk) for tool orchestration.
 - Use `gemini` via Google’s Python SDK for LLM calls.
-- Define **prompts in YAML** files (user + system), and load using a shared helper.
+- Define **prompts in YAML** files in `app/prompts/`, load using helper.
+- Define MCP **resources** in `app/resources/` for config/schema.
 - Reuse shared helpers for parsing, logging, and I/O.
-- Modularize functionality into logical Python modules, avoid monolithic scripts.
+- Modularize functionality into logical Python modules.
 - Use `logger` to track progress and handle errors.
-
-Thank you for contributing to this MCP-powered AI Co-Pilot 🚀
