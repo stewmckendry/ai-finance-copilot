@@ -16,9 +16,9 @@ This file provides instructions, standards, and practices for agents contributin
 | `app/interface/`     | CLI or UI interaction logic                 |
 | `app/prompts/`       | YAML-based LLM prompt templates             |
 | `app/resources/`     | MCP-accessible config and metadata          |
+| `scripts/`           | CLI utilities and tool test runners         |
 | `task_guides/`       | Task instructions and review reports        |
 | `tests/`             | Unit tests for each component               |
-
 
 ## 🔁 Naming Conventions
 
@@ -44,6 +44,9 @@ Install all packages with:
 pip install -r requirements.txt
 ```
 
+Update `requirements.txt` with any new packages required by your code.
+Update `.env-example` with any new required environment variables.
+
 ## 🤝 Coordination
 
 Agents are expected to:
@@ -64,3 +67,5 @@ To ensure quality and consistency:
 - Reuse shared helpers for parsing, logging, and I/O.
 - Modularize functionality into logical Python modules.
 - Use `logger` to track progress and handle errors.
+- Add header comment to each file with its purpose, deployment and test commands.
+- Place scripts for testing tools or agents in `scripts/`, named by task or function.
