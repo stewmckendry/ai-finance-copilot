@@ -13,6 +13,7 @@ from typing import List, Dict
 
 import pandas as pd
 from fastmcp.server import FastMCP
+from app.resources import load_resource
 from app.prompts import load_prompt
 
 logger = logging.getLogger(__name__)
@@ -22,8 +23,18 @@ REQUIRED_COLUMNS = ["department", "program", "account", "budget", "actual", "var
 # FastMCP server used for registering the tool
 mcp = FastMCP("Variance Parser")
 
+# Metadata describing the variance parser
+VARIANCE_METADATA = load_resource("variance_ingest")
+
+
+@mcp.resource("resource://metadata/variance_ingest")
+def variance_metadata() -> dict:
+    """Expose variance ingest metadata as a resource."""
+    return VARIANCE_METADATA
+
 # Load prompt configuration for the tool
 PROMPT = load_prompt("variance_ingest")
+
 
 
 @mcp.tool(name="parseVarianceSpreadsheet")
@@ -48,5 +59,14 @@ def parse_variance(file_path: str) -> List[Dict]:
 
     df = df[REQUIRED_COLUMNS]
     rows = df.to_dict(orient="records")
+
+    for idx, row in enumerate(rows):
+        for col in REQUIRED_COLUMNS:
+            if col not in row:
+                raise ValueError(f"Row {idx} missing {col}")
+        for numeric in ["budget", "actual", "variance"]:
+            if not isinstance(row[numeric], (int, float)):
+                raise TypeError(f"Row {idx} column '{numeric}' is not numeric")
+
     logger.info("Parsed %d rows", len(rows))
     return rows
