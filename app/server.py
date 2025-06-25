@@ -8,13 +8,19 @@ from __future__ import annotations
 
 from fastmcp import FastMCP
 from fastmcp.tools import Tool
+from fastmcp.prompts.prompt import PromptMessage
+
+from app.prompts.load import load_prompt_template
 
 from app.data.azure_sql import fetch_budget_data
 from app.resources.load import resolve_resource
 
-capabilities = {"resources": {"listChanged": False, "subscribe": False}}
+capabilities = {
+    "resources": {"listChanged": False, "subscribe": False},
+    "prompts": {"listChanged": False},
+}
 
-mcp = FastMCP(capabilities=capabilities)
+mcp = FastMCP()
 
 # Register tool using metadata from @mcp_tool decorator
 registration = getattr(fetch_budget_data, "_mcp_tool_registration", {})
@@ -24,6 +30,12 @@ else:
     tool = Tool.from_function(fetch_budget_data)
 
 mcp.add_tool(tool)
+
+
+@mcp.prompt("variance_summary", description="Draft a narrative summary of budget variance")
+def prompt_variance_summary(data: dict):
+    """Render the variance summary prompt."""
+    return load_prompt_template("variance_summary", data=data)
 
 
 @mcp.resource("config://azure_sql", name="Azure SQL Config", mime_type="text/yaml")
