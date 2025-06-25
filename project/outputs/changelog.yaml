@@ -172,3 +172,8 @@
   task_id: initialize_codex_agent_guidelines-e0ccbe
   committed_by: GPTPod
   message: Memory update related to task_guides/task_004_mcp_resources.md
+- timestamp: '2025-06-25T01:31:04.049581'
+  path: task_guides/task_004_mcp_resources.md
+  task_id: initialize_codex_agent_guidelines-e0ccbe
+  committed_by: GPTPod
+  message: Update Task 004 with MCP spec references and resource registration instructions
