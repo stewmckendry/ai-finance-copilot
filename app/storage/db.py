@@ -19,19 +19,44 @@ from sqlalchemy.orm import sessionmaker, Session
 
 logger = logging.getLogger(__name__)
 
-CONFIG_PATH = Path(__file__).resolve().parents[1] / "resources" / "config" / "azure_sql.yaml"
+RESOURCE_ROOT = Path(__file__).resolve().parents[1] / "resources"
+CONFIG_URI = "resource://config/azure_sql"
+CONFIG_PATH = RESOURCE_ROOT / "config" / "azure_sql.yaml"
 PAGE_SIZE = 500
 
 
-def load_config() -> dict[str, Any]:
-    if CONFIG_PATH.exists():
-        with open(CONFIG_PATH) as f:
+def resolve_resource_uri(uri: str) -> Path:
+    """Resolve a ``resource://`` URI to an absolute path within ``app/resources``."""
+    if uri.startswith("resource://"):
+        relative = uri[len("resource://") :]
+        path = RESOURCE_ROOT / relative
+        if path.is_dir():
+            return path
+        if not path.suffix:
+            path = path.with_suffix(".yaml")
+        return path
+    return Path(uri)
+
+
+def load_config(uri: str = CONFIG_URI) -> dict[str, Any]:
+    """Load YAML config from a ``resource://`` URI or filesystem path."""
+    path = resolve_resource_uri(uri)
+    if path.exists():
+        with open(path) as f:
             return yaml.safe_load(f) or {}
     return {}
 
 
 def get_engine(url: str | None = None) -> Engine:
-    """Return SQLAlchemy engine, falling back to env or resource config."""
+    """Return SQLAlchemy engine, resolving ``resource://`` URLs when provided.
+
+    If ``url`` is not supplied, environment variables ``SQLITE_URL`` or
+    ``AZURE_SQL_URL`` are used. Otherwise configuration is loaded from
+    ``resource://config/azure_sql``.
+    """
+    if url and url.startswith("resource://"):
+        cfg = load_config(url)
+        url = cfg.get("url")
     if url is None:
         url = os.getenv("SQLITE_URL") or os.getenv("AZURE_SQL_URL")
         if not url:

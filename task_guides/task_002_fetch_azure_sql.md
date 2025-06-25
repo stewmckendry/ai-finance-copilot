@@ -29,6 +29,7 @@ def fetch_budget_data(period: str) -> dict:
 - Use `@mcp.tool`
 - Config path: `resource://config/azure_sql`
 - Log all DB queries
+  - Falls back to `AZURE_SQL_URL` or `SQLITE_URL` environment variables
 
 ## ⚙️ Implementation Notes
 - Use `SQLAlchemy` for DB access and connection pooling

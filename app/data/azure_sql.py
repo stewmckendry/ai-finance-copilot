@@ -2,6 +2,7 @@
 
 Purpose: MCP tool to load budgets, actuals and transactions for a period.
 Deployment: Data Agent tool registered via FastMCP.
+Config: resolves ``resource://config/azure_sql`` or ``AZURE_SQL_URL`` env var.
 Test: pytest tests/data/test_azure_sql.py
 """
 
