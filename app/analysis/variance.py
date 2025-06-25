@@ -8,7 +8,7 @@ Test: ``pytest tests/analysis/test_variance.py``
 from __future__ import annotations
 
 import logging
-from typing import Dict, List
+from typing import List
 
 from fastmcp.contrib.mcp_mixin import mcp_tool
 
@@ -22,8 +22,12 @@ def _safe_pct(numerator: float, denominator: float) -> float:
     return round((numerator / denominator) * 100, 2)
 
 
-@mcp_tool("reconcileBudgetVsActual")
-def reconcile_budget(data: Dict) -> Dict:
+@mcp_tool(
+    name="reconcileBudgetVsActual",
+    description="Compute variances between planned and actual amounts",
+    annotations={"readOnlyHint": True},
+)
+def reconcile_budget(data: dict) -> dict:
     """Compute account-level variance between budgets and actuals.
 
     ``data`` must contain lists under ``budgets`` and ``actuals`` with
@@ -33,15 +37,15 @@ def reconcile_budget(data: Dict) -> Dict:
     if not isinstance(data, dict):
         raise TypeError("Input must be a dict")
 
-    budgets: List[Dict] = data.get("budgets") or []
-    actuals: List[Dict] = data.get("actuals") or []
+    budgets: List[dict] = data.get("budgets") or []
+    actuals: List[dict] = data.get("actuals") or []
 
     if not isinstance(budgets, list) or not isinstance(actuals, list):
         raise ValueError("'budgets' and 'actuals' must be lists")
 
     logger.info("Reconciling %d budget rows and %d actual rows", len(budgets), len(actuals))
 
-    budget_map: Dict[str, Dict] = {}
+    budget_map: dict[str, dict] = {}
     for b in budgets:
         acct = b.get("account")
         if acct is None:
@@ -50,7 +54,7 @@ def reconcile_budget(data: Dict) -> Dict:
             raise ValueError("Budget row missing 'amount_planned'")
         budget_map[acct] = b
 
-    actual_totals: Dict[str, float] = {}
+    actual_totals: dict[str, float] = {}
     for a in actuals:
         acct = a.get("account")
         if acct is None:
@@ -59,7 +63,7 @@ def reconcile_budget(data: Dict) -> Dict:
             raise ValueError("Actual row missing 'amount_actual'")
         actual_totals[acct] = actual_totals.get(acct, 0.0) + float(a.get("amount_actual", 0.0))
 
-    variance_rows: List[Dict] = []
+    variance_rows: List[dict] = []
 
     processed_accounts = set()
 

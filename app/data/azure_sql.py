@@ -20,7 +20,11 @@ from app.storage import db, models
 logger = logging.getLogger(__name__)
 
 
-@mcp_tool("fetchBudgetData")
+@mcp_tool(
+    name="fetchBudgetData",
+    description="Load budget, actual and transaction data for the given fiscal period",
+    annotations={"readOnlyHint": True},
+)
 def fetch_budget_data(period: str, config_uri: str = "resource://config/azure_sql") -> dict:
     """Return budget and actual data for ``period`` using ``config_uri``.
 
