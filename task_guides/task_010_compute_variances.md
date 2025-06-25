@@ -1,35 +1,59 @@
 # 📊 Task 010: Compute Budget vs Actual Variances
 
 ## 🎯 Objective
-Create tool `reconcileBudgetVsActual(data)` to compute variances per account, department, or program.
+Build MCP tool `reconcileBudgetVsActual(data)` to compute account-level variances.
 
 ## 📥 Input
-- Dictionary with two tables:
-  - `budgets`: planned amounts
-  - `actuals`: actual expenditures
+```json
+{
+  "budgets": [{"account": "A", "amount_planned": 10000, ...}],
+  "actuals": [{"account": "A", "amount_actual": 9000, ...}]
+}
+```
 
 ## 📤 Output
-- Table `variance`: variance_amount, variance_pct, flagged if over/under
+```json
+{
+  "variance": [
+    {
+      "account": "A",
+      "variance_amount": -1000,
+      "variance_pct": -10.0,
+      "flag": "under"
+    },
+    ...
+  ]
+}
+```
 
 ## 🔧 Tool Spec
 ```python
 @mcp_tool("reconcileBudgetVsActual")
-def reconcile_budget(data: dict) -> List[dict]:
+def reconcile_budget(data: dict) -> dict:
     ...
 ```
 
-## 📁 File
-- Path: `app/analysis/variance.py`
+## 📁 Files
+- Tool logic: `app/analysis/variance.py`
+- Tests: `tests/analysis/test_variance.py`
 
-## 🧠 Notes
-- Join on department + account
-- Use consistent field names for variance_amount, variance_pct
-- Flag high (>10%) or negative variances
+## 🔁 MCP Features
+- Use `@mcp_tool`
+- Log record counts and summary stats
+- Validate input format and handle missing account matches
+- Document input schema as MCP resource (later)
 
 ## ✅ Done When
-- Variance table produced and logged
-- CLI and test runs pass
+- Matches budgets and actuals by account
+- Computes signed difference + pct
+- Flags variance as `over`, `under`, or `ok`
+- Passes CLI and pytest with mock data
 
 ## 🧪 Test
-- Path: `tests/analysis/test_variance.py`
-- Uses mock budget + actuals loaded from samples
+- Load mock data from `samples/mock_variance_input.json`
+- Assert variance amounts and flags
+
+## 📌 Notes
+- Use float formatting for percent (e.g. `-12.5`) and safe divide
+- Consider edge cases: zero budgets, missing actuals
+- Reuse across forecasting tool later

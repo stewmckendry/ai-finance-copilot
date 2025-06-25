@@ -1,47 +1,36 @@
 # 🧠 Task 003: MCP Prompt Registry
 
 ## 🎯 Objective
-Create a shared system for defining, loading, and registering LLM prompts using YAML and the MCP prompt API.
-
-## 📥 Input
-- YAML files in `app/prompts/` with fields: `id`, `system`, `user`
-
-## 📤 Output
-- Python helper to load prompt by ID
-- Optional auto-registration to FastMCP prompt registry
+Create loader and registry for YAML-based LLM prompts using MCP conventions.
 
 ## 📁 Files
-- Prompts: `app/prompts/variance_summary.yaml`, etc.
+- Prompts: `app/prompts/*.yaml`
 - Loader: `app/prompts/load.py`
+- Tests: `tests/prompts/test_loader.py`
 
-## 🔧 Example YAML
+## 📥 Prompt Format
 ```yaml
 id: variance_summary
-system: |
-  You are a finance analyst assistant...
-user: |
-  Please draft a narrative based on this variance table:
-  {{ data }}
+system: "You are a finance assistant..."
+user: "Summarize this table: {{ data }}"
 ```
 
-## 🔧 Example Loader
-```python
-from mcp.prompt import register_prompt_yaml
+## 🔧 Features
+- `load_prompt(id: str)` loads YAML and returns `dict`
+- Optionally register with MCP via `register_prompt_yaml(path)`
+- Document each prompt's use case
 
-def load_prompt(id: str) -> dict:
-    path = f"app/prompts/{id}.yaml"
-    register_prompt_yaml(path)
-    return ...  # parsed prompt object
-```
-
-## 🧠 Notes
-- Prompts must be version-controlled and auditable
-- Support both inline use and registration
+## 🧠 Lessons from T001
+- Ensure prompts are either:
+  - For LLM use (and registered properly)
+  - Or purely metadata (and stored as MCP resource)
+- Avoid including unused prompts in tool code
 
 ## ✅ Done When
-- `load_prompt()` returns structured prompt
-- All YAMLs load and register without error
+- `load_prompt()` supports structured field return
+- `register_prompt_yaml()` is optional
+- Loader fails gracefully if file missing
 
 ## 🧪 Test
-- Add `tests/prompts/test_loader.py`
-- Include at least one example prompt file
+- Include one working and one broken prompt YAML
+- Test `load_prompt("variance_summary")` returns both fields

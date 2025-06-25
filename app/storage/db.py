@@ -29,7 +29,6 @@ def resolve_resource_uri(uri: str) -> Path:
     """Resolve a ``resource://`` URI using :func:`app.resources.load.resolve_resource`."""
     return resolve_resource(uri)
 
-
 def load_config(uri: str = CONFIG_URI) -> dict[str, Any]:
     """Load YAML config from a ``resource://`` URI or filesystem path."""
     path = resolve_resource_uri(uri)
