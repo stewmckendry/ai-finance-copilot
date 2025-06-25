@@ -13,11 +13,14 @@ from fastmcp.prompts.prompt import PromptMessage
 from app.prompts.load import load_prompt_template
 
 from app.data.azure_sql import fetch_budget_data
+from app.analysis.variance import reconcile_budget
+from app.data.variance_excel import parse_variance
 from app.resources.load import resolve_resource
 
 capabilities = {
     "resources": {"listChanged": False, "subscribe": False},
     "prompts": {"listChanged": False},
+    "tools": {"listChanged": False},
 }
 
 mcp = FastMCP()
@@ -29,6 +32,25 @@ if registration:
 else:
     tool = Tool.from_function(fetch_budget_data)
 
+mcp.add_tool(tool)
+
+# Register parse_variance tool
+registration = getattr(parse_variance, "_mcp_tool_registration", {})
+if isinstance(parse_variance, Tool):
+    mcp.add_tool(parse_variance)
+else:
+    if registration:
+        tool = Tool.from_function(parse_variance, **registration)
+    else:
+        tool = Tool.from_function(parse_variance)
+    mcp.add_tool(tool)
+
+# Register reconcile_budget tool
+registration = getattr(reconcile_budget, "_mcp_tool_registration", {})
+if registration:
+    tool = Tool.from_function(reconcile_budget, **registration)
+else:
+    tool = Tool.from_function(reconcile_budget)
 mcp.add_tool(tool)
 
 

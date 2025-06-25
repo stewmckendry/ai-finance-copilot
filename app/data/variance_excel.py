@@ -37,7 +37,11 @@ PROMPT = load_prompt("variance_ingest")
 
 
 
-@mcp.tool(name="parseVarianceSpreadsheet")
+@mcp.tool(
+    name="parseVarianceSpreadsheet",
+    description="Parse a variance spreadsheet into normalized rows",
+    annotations={"readOnlyHint": True},
+)
 def parse_variance(file_path: str) -> List[Dict]:
     """Parse a variance spreadsheet and return rows as dictionaries."""
     path = Path(file_path)
