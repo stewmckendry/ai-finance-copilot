@@ -1,0 +1,12 @@
+id: variance_dm
+title: "DM Implications"
+description: "Explain variance implications for deputy minister"
+arguments:
+  - name: summary
+    description: "Variance summary text"
+    type: string
+    required: true
+user: |
+  The deputy minister needs a plain-language explanation of the following:
+  {summary}
+  Outline the key impacts on operations.

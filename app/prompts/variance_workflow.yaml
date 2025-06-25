@@ -1,0 +1,15 @@
+id: variance_workflow
+title: "Variance DM Workflow"
+description: "Summarize variance data then craft DM explanation"
+arguments:
+  - name: data
+    description: "Budget vs actual data"
+    type: string
+    required: true
+steps:
+  - prompt: variance_summary
+    arguments:
+      data: "{data}"
+  - prompt: variance_dm
+    arguments:
+      summary: "Summary: {data}"

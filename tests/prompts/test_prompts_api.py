@@ -28,3 +28,11 @@ def test_prompts_get() -> None:
     assert result.description.startswith("Draft")
     assert result.messages[0].role == "user"
     assert "dept'" in result.messages[-1].content.text
+
+    chain = asyncio.run(
+        mcp._mcp_get_prompt(
+            "variance_workflow",
+            {"data": '{"dept": "A", "variance": "over"}'}
+        )
+    )
+    assert len(chain.messages) > 2

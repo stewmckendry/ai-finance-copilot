@@ -38,6 +38,18 @@ def prompt_variance_summary(data: dict):
     return load_prompt_template("variance_summary", data=data)
 
 
+@mcp.prompt("variance_dm", description="Explain variance implications for DM")
+def prompt_variance_dm(summary: str):
+    """Render the deputy minister explanation prompt."""
+    return load_prompt_template("variance_dm", summary=summary)
+
+
+@mcp.prompt("variance_workflow", description="Multi-step variance briefing")
+def prompt_variance_workflow(data: str):
+    """Run the variance workflow chain."""
+    return load_prompt_template("variance_workflow", data=data)
+
+
 @mcp.resource("config://azure_sql", name="Azure SQL Config", mime_type="text/yaml")
 def get_azure_sql_config() -> str:
     """Return the Azure SQL configuration YAML."""

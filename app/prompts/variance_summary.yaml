@@ -4,6 +4,7 @@ description: "Draft a narrative summary of budget variance"
 arguments:
   - name: data
     description: "Budget vs actual data table"
+    type: string
     required: true
 system: |
   You are a helpful financial analyst assistant. Summarize key insights for an executive report.
