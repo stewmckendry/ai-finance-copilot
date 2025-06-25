@@ -169,3 +169,15 @@
   - prompt
   last_updated: '2025-06-25'
   pod_owner: DeliveryPod
+- path: task_guides/task_010a_elicitation_requests.md
+  raw_url: https://raw.githubusercontent.com/stewmckendry/ai-finance-copilot/main/task_guides/task_010a_elicitation_requests.md
+  file_type: md
+  description: Guide for implementing and testing user input requests via the `elicitation/create`
+    endpoint, including schema construction and handling user responses.
+  tags:
+  - elicitation
+  - prompt
+  - schema
+  - config
+  last_updated: '2025-06-25'
+  pod_owner: DevPod
