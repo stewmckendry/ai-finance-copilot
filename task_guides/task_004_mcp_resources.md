@@ -1,28 +1,37 @@
 # 🧩 Task 004: MCP Resources Registry
 
 ## 🎯 Objective
-Expose common YAML config, schema, or metadata files as addressable MCP resources.
+Expose common config, schema, or metadata files as formal MCP resources.
+
+## 🧠 Spec Reference
+> "Resources MUST be registered under `resource://...`, return MIME-typed payloads, and be discoverable via capability declaration."
+> — [MCP Spec §3.4](https://modelcontextprotocol.io/specification/2025-06-18#resource)
 
 ## 📁 Files
 - Resources path: `app/resources/**`
 - Loader: `app/resources/load.py`
+- Server: `scripts/register_config_resource.py`
 - Tests: `tests/resources/test_loader.py`
 
 ## 🔧 Features
-- `resolve_resource_uri(uri)` → absolute path (supports `resource://config/foo`, etc.)
-- `load_resource_yaml(uri)` → parsed object from YAML
-
-## 🧠 Lessons from T002
-- Define the default path root in `db.py`, reuse in loader
-- Support both `.yaml` and `.yml` fallback extensions
-- Fail gracefully with missing file
+- `resolve_resource_uri(uri)` resolves to absolute path
+- `load_resource_yaml(uri)` loads and parses YAML
+- Use `@mcp.resource(...)` to expose a named config
 
 ## ✅ Done When
-- Resource loader supports any URI
-- Used by at least one MCP tool (e.g. T002)
-- Configurable default root = `app/resources/`
+- Config exposed as `resource://config/azure_sql`
+- Registered via FastMCP server
+- Declares capabilities: `resources: { listChanged: false, subscribe: false }`
+- Loadable via MCP `readResource()`
 
 ## 🧪 Test
-- Load working resource
-- Assert expected fields (e.g. `url` in DB config)
-- Check behavior on bad URI or file not found
+- Call `read_resource("resource://config/azure_sql")`
+- Assert `url` key in YAML returned
+
+## 🛠 Example
+```python
+@mcp.resource("config://azure_sql", mime_type="text/yaml")
+def get_config():
+    path = resolve_resource("resource://config/azure_sql")
+    return open(path).read()
+```
