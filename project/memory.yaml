@@ -193,3 +193,15 @@
   - testing
   last_updated: '2025-06-25'
   pod_owner: DevPod
+- path: docs/architecture_mcp_roles_and_host_options.md
+  raw_url: https://raw.githubusercontent.com/stewmckendry/ai-finance-copilot/main/docs/architecture_mcp_roles_and_host_options.md
+  file_type: md
+  description: Documentation on MCP roles, host options, and example flows for integrating
+    LLMs with MCP architecture.
+  tags:
+  - architecture
+  - MCP
+  - LLM
+  - integration
+  last_updated: '2025-06-25'
+  pod_owner: DeliveryPod
