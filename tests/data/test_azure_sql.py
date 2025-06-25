@@ -34,7 +34,11 @@ def setup_sqlite():
 def test_fetch_budget_data(monkeypatch):
     engine, SessionLocal = setup_sqlite()
 
-    monkeypatch.setattr(db, "get_engine", lambda url=None: engine)
+    def fake_get_engine(url=None):
+        assert url == "resource://config/azure_sql"
+        return engine
+
+    monkeypatch.setattr(db, "get_engine", fake_get_engine)
     monkeypatch.setattr(db, "get_session", lambda eng=engine: SessionLocal())
 
     data = fetch_budget_data("2024-Q1")

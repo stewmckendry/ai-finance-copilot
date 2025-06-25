@@ -3,6 +3,7 @@
 Purpose: MCP tool to load budgets, actuals and transactions for a period.
 Deployment: Data Agent tool registered via FastMCP.
 Config: resolves ``resource://config/azure_sql`` or ``AZURE_SQL_URL`` env var.
+The ``config_uri`` parameter can override the default resource path.
 Test: pytest tests/data/test_azure_sql.py
 """
 
@@ -20,9 +21,13 @@ logger = logging.getLogger(__name__)
 
 
 @mcp_tool("fetchBudgetData")
-def fetch_budget_data(period: str) -> dict:
-    """Return budget and actual data for the given fiscal period."""
-    engine = db.get_engine()
+def fetch_budget_data(period: str, config_uri: str = "resource://config/azure_sql") -> dict:
+    """Return budget and actual data for ``period`` using ``config_uri``.
+
+    The connection string is loaded from the given MCP resource URI, falling
+    back to environment variables when not found.
+    """
+    engine = db.get_engine(config_uri)
     session = db.get_session(engine)
 
     fiscal_year = period.split("-")[0]

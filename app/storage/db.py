@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 import yaml
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine
 from sqlalchemy.engine import Engine
 from sqlalchemy.exc import OperationalError
 from sqlalchemy.orm import sessionmaker, Session
