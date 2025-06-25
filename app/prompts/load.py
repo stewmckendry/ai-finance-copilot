@@ -8,10 +8,28 @@ Test: ``pytest tests/prompts/test_prompts_api.py``
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any
+from typing import Any, Dict
 
 import yaml
 from mcp.types import PromptMessage, TextContent
+
+
+class PromptChain:
+    """Execute a multi-step prompt workflow."""
+
+    def __init__(self, steps: list[Dict[str, Any]]):
+        self.steps = steps
+
+    def run(self, **kwargs: Any) -> list[PromptMessage]:
+        messages: list[PromptMessage] = []
+        for step in self.steps:
+            prompt = step.get("prompt")
+            args = {
+                key: str(value).format(**kwargs) if isinstance(value, str) else value
+                for key, value in step.get("arguments", {}).items()
+            }
+            messages.extend(load_prompt_template(prompt, **args))
+        return messages
 
 PROMPT_DIR = Path(__file__).parent
 
@@ -34,7 +52,13 @@ def load_prompt_template(name: str, **kwargs: Any) -> list[PromptMessage]:
         except Exception:
             return value
 
+    if "steps" in data:
+        chain = PromptChain(data["steps"])
+        return chain.run(**kwargs)
+
     if "system" in data:
+        # FastMCP PromptMessage supports only 'user' or 'assistant' roles.
+        # Represent system prompts as a user message for compatibility.
         messages.append(
             PromptMessage(role="user", content=TextContent(type="text", text=_format(data["system"])))
         )
