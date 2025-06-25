@@ -1,0 +1,6 @@
+name: parseVarianceSpreadsheet
+description: |
+  Parse an IFIS-style variance spreadsheet containing columns for department,
+  program, account, budget, actual, and variance. Returns a list of normalized
+  rows with fields `department`, `program`, `account`, `budget`, `actual`, and
+  `variance`.
