@@ -21,14 +21,17 @@ Build `fetchBudgetData(period)` to retrieve structured budget + actuals data fro
 ## 🔧 Tool Spec
 ```python
 @mcp_tool("fetchBudgetData")
-def fetch_budget_data(period: str) -> dict:
+def fetch_budget_data(period: str, config_uri: str = "resource://config/azure_sql") -> dict:
     ...
 ```
 
 ## 🔁 MCP Features
 - Use `@mcp.tool`
 - Config path: `resource://config/azure_sql`
+- Optional `config_uri` parameter overrides the path
+- FastMCP server registers the config as `config://azure_sql`
 - Log all DB queries
+  - Falls back to `AZURE_SQL_URL` or `SQLITE_URL` environment variables
 
 ## ⚙️ Implementation Notes
 - Use `SQLAlchemy` for DB access and connection pooling

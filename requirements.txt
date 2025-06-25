@@ -1,0 +1,4 @@
+fastmcp
+SQLAlchemy==2.0.29
+pytest
+PyYAML
