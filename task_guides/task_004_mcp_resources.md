@@ -1,37 +1,38 @@
-# 🧩 Task 004: MCP Resources Registry
+# 🧩 Task 004: MCP Resources Registry (Updated)
 
 ## 🎯 Objective
-Expose common config, schema, or metadata files as formal MCP resources.
+Fully implement and test MCP resource registration and discovery per MCP Spec §3.4
 
 ## 🧠 Spec Reference
-> "Resources MUST be registered under `resource://...`, return MIME-typed payloads, and be discoverable via capability declaration."
-> — [MCP Spec §3.4](https://modelcontextprotocol.io/specification/2025-06-18#resource)
+> "Servers that support resources MUST declare the `resources` capability… and expose resources via URIs with MIME‑typed payloads."
+> — MCP Spec §3.4 (https://modelcontextprotocol.io/specification/2025-06-18/server/resources)
 
 ## 📁 Files
-- Resources path: `app/resources/**`
+- Resources: `app/resources/config/azure_sql.yaml`, etc.
 - Loader: `app/resources/load.py`
-- Server: `scripts/register_config_resource.py`
-- Tests: `tests/resources/test_loader.py`
+- Server: e.g. `scripts/azure_sql_server.py`
+- Tests: `tests/resources/test_resources_api.py`
 
-## 🔧 Features
-- `resolve_resource_uri(uri)` resolves to absolute path
-- `load_resource_yaml(uri)` loads and parses YAML
-- Use `@mcp.resource(...)` to expose a named config
-
-## ✅ Done When
-- Config exposed as `resource://config/azure_sql`
-- Registered via FastMCP server
-- Declares capabilities: `resources: { listChanged: false, subscribe: false }`
-- Loadable via MCP `readResource()`
-
-## 🧪 Test
-- Call `read_resource("resource://config/azure_sql")`
-- Assert `url` key in YAML returned
-
-## 🛠 Example
+## 🔧 Requirements
+- Add capability: `resources: { listChanged: false, subscribe: false }`
+- Register resource with MCP:
 ```python
-@mcp.resource("config://azure_sql", mime_type="text/yaml")
-def get_config():
+@mcp.resource("config://azure_sql", title="Azure SQL Config", mime_type="text/yaml")
+def get_azure_sql_config():
     path = resolve_resource("resource://config/azure_sql")
     return open(path).read()
 ```
+- List + read resources using MCP client
+
+## ✅ Done When
+- Resource shows up in `resources/list`
+- `read_resource("config://azure_sql")` returns full YAML
+- FastMCP server exposes metadata (URI, title, MIME)
+
+## 🧪 Tests
+- Simulate client listing and reading config resource
+- Validate content and headers
+
+## 📌 Notes
+- Do not require subscribe support for MVP
+- Prompts or schema files may later be exposed the same way
