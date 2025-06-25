@@ -1,0 +1,2 @@
+# Azure SQL connection configuration
+url: ${AZURE_SQL_URL}
