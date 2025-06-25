@@ -1,0 +1,12 @@
+{
+  "budgets": [
+    {"account": "A", "amount_planned": 10000},
+    {"account": "B", "amount_planned": 20000},
+    {"account": "C", "amount_planned": 0}
+  ],
+  "actuals": [
+    {"account": "A", "amount_actual": 9000},
+    {"account": "B", "amount_actual": 22000},
+    {"account": "D", "amount_actual": 5000}
+  ]
+}
