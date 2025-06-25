@@ -162,3 +162,8 @@
   task_id: initialize_codex_agent_guidelines-e0ccbe
   committed_by: GPTPod
   message: "Update Task 004 to match full MCP \xA73.4 resource requirements"
+- timestamp: '2025-06-25T02:17:48.288519'
+  path: task_guides/task_003_mcp_prompt_registry.md
+  task_id: initialize_codex_agent_guidelines-e0ccbe
+  committed_by: GPTPod
+  message: "Update Task 003 to fully align with MCP prompt spec \xA7server/prompts"
