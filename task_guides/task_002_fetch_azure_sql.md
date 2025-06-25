@@ -29,6 +29,7 @@ def fetch_budget_data(period: str, config_uri: str = "resource://config/azure_sq
 - Use `@mcp.tool`
 - Config path: `resource://config/azure_sql`
 - Optional `config_uri` parameter overrides the path
+- FastMCP server registers the config as `config://azure_sql`
 - Log all DB queries
   - Falls back to `AZURE_SQL_URL` or `SQLITE_URL` environment variables
 

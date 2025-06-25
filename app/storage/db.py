@@ -11,6 +11,8 @@ import os
 from pathlib import Path
 from typing import Any, Iterable
 
+from app.resources.load import resolve_resource
+
 import yaml
 from sqlalchemy import create_engine
 from sqlalchemy.engine import Engine
@@ -19,24 +21,13 @@ from sqlalchemy.orm import sessionmaker, Session
 
 logger = logging.getLogger(__name__)
 
-RESOURCE_ROOT = Path(__file__).resolve().parents[1] / "resources"
 CONFIG_URI = "resource://config/azure_sql"
-CONFIG_PATH = RESOURCE_ROOT / "config" / "azure_sql.yaml"
 PAGE_SIZE = 500
 
 
 def resolve_resource_uri(uri: str) -> Path:
-    """Resolve a ``resource://`` URI to an absolute path within ``app/resources``."""
-    if uri.startswith("resource://"):
-        relative = uri[len("resource://") :]
-        path = RESOURCE_ROOT / relative
-        if path.is_dir():
-            return path
-        if not path.suffix:
-            path = path.with_suffix(".yaml")
-        return path
-    return Path(uri)
-
+    """Resolve a ``resource://`` URI using :func:`app.resources.load.resolve_resource`."""
+    return resolve_resource(uri)
 
 def load_config(uri: str = CONFIG_URI) -> dict[str, Any]:
     """Load YAML config from a ``resource://`` URI or filesystem path."""
