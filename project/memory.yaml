@@ -133,3 +133,15 @@
   - loader
   last_updated: '2025-06-25'
   pod_owner: DeliveryPod
+- path: task_guides/task_003b_prompt_arguments_and_workflows.md
+  raw_url: https://raw.githubusercontent.com/stewmckendry/ai-finance-copilot/main/task_guides/task_003b_prompt_arguments_and_workflows.md
+  file_type: md
+  description: Guide for extending prompt support to handle arguments in YAMLs and
+    enable multi-step workflows, including toolchaining and prompt message handling.
+  tags:
+  - prompt
+  - workflow
+  - arguments
+  - toolchaining
+  last_updated: '2025-06-25'
+  pod_owner: DevPod
