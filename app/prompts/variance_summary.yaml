@@ -1,0 +1,13 @@
+id: variance_summary
+title: "Variance Summary"
+description: "Draft a narrative summary of budget variance"
+arguments:
+  - name: data
+    description: "Budget vs actual data table"
+    required: true
+system: |
+  You are a helpful financial analyst assistant. Summarize key insights for an executive report.
+user: |
+  Given the following variance data:
+  {data}
+  Provide a concise summary highlighting major over or under spending.
