@@ -145,3 +145,15 @@
   - toolchaining
   last_updated: '2025-06-25'
   pod_owner: DevPod
+- path: task_guides/task_008_tool_metadata_and_discovery.md
+  raw_url: https://raw.githubusercontent.com/stewmckendry/ai-finance-copilot/main/task_guides/task_008_tool_metadata_and_discovery.md
+  file_type: md
+  description: Guide for aligning MCP tools with specification requirements, including
+    tool registration, server capabilities, and client discovery.
+  tags:
+  - metadata
+  - discovery
+  - tools
+  - spec
+  last_updated: '2025-06-25'
+  pod_owner: DevPod
